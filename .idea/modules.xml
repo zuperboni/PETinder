@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Petinder.iml" filepath="$PROJECT_DIR$/Petinder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/P3T1ND3R.iml" filepath="$PROJECT_DIR$/P3T1ND3R.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
