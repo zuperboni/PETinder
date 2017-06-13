@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    >
+
+    <TextView
+        android:id="@+id/txtLogo"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/dog_1"
+        />
+
+    <TextView
+        android:drawableLeft="@drawable/ic_account_black_18dp"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_login"
+        android:textSize="18sp"
+        />
+
+    <EditText
+        android:id="@+id/edtLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_exemplo_email"
+        android:inputType="textNoSuggestions|textEmailAddress"
+        />
+
+    <TextView
+        android:drawableLeft="@drawable/ic_lock_black_18dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_senha"
+        android:textSize="18sp"
+        />
+
+    <EditText
+        android:id="@+id/edtSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberPassword"
+        />
+
+    <Button
+        android:id="@+id/btnEntrar"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_entrar"
+        android:background="@color/colorAccent"
+        />
+
+</LinearLayout>
