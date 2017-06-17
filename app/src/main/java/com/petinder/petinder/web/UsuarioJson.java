@@ -28,22 +28,28 @@ public class UsuarioJson {
             jsonStringer.object()
                     .key("nome").value(usuario.getNome())
                     .key("email").value(usuario.getEmail())
+                    .key("dtNasc").value(usuario.getDtNasc())
                     .key("imagemPerfil").value(usuario.getImagemPerfil())
                     .key("localizacao").value(usuario.getLocalizacao())
                     .key("senha").value(usuario.getSenha())
                     .key("raioBusca").value(usuario.getRaioBusca())
-                    .key("dtNasc").value(usuario.getDtNasc())
-                    .key("fcmIdAtual").value(usuario.getFcmIdAtual());
+                    .key("fcmIdAtual").value(usuario.getFcmIdAtual())
+                    .key("fcmId").array();
 
-            List<String> fcmIds=usuario.getFcmIDList();
-                    for(String item: fcmIds){
-                        jsonStringer.object()
-                        .key("fcmId").value(item)
+
+            List<String> fcmIds = usuario.getFcmIDList();
+
+            for (String item : fcmIds) {
+
+                jsonStringer.object()
+                        .key("fcm").value(item)
                         .endObject();
-                    }
+            }
 
             jsonStringer.endArray()
+
                     .endObject();
+
         }
         catch (JSONException e){
             e.printStackTrace();

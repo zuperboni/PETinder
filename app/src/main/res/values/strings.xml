@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PETinder</string>
+    <string name="app_name">Petinder</string>
     <string name="hint_exemplo_email">example@example.com</string>
     <string name="text_login">Login</string>
     <string name="text_senha">Senha</string>
@@ -9,4 +9,36 @@
     <string name="hint_digite_seu_nome">Digite seu nome</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="hint_nome_cachorro">Digite o nome do seu cachorro</string>
+    //Config da Navigation Drawer
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="chat">Chat</string>
+    //Config Servidor
+    <string name="imageserver">http://4runnerapp.com.br/AppJobs/img/</string>
+    <string name="imageservermini">http://4runnerapp.com.br/AppJobs/img_thumb/</string>
+    <string name="email">E-mail:</string>
+    <string name="datanasc">Data de nascimento</string>
+    <string name="senha">Senha</string>
+    <string name="confirmarSenha">Confirme a senha</string>
+    <string name="nome">Nome</string>
+    <string name="opserro">Ops! Algo deu errado!</string>
+    <string name="bemvindo">Bem-vindo!</string>
+    <string name="cadastrado">Cadastro concluído!</string>
+    <string name="continuar">Continuar</string>
+    <string name="atencao">Atenção!</string>
+    <string name="emailjacadastrado">E-mail já cadastrado</string>
+    <string name="okentendi">Ok, entendi</string>
+    <string name="tirarfoto">Tirar foto</string>
+    <string name="escolherdagaleria">Escolher da galeria</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="escolhafoto">Escolha a foto</string>
+    <string name="preenchacampo">Campo obrigatório</string>
+    <string name="emailInvalido">E-mail inválido</string>
+    <string name="senhacurta">Senha muito curta</string>
+    <string name="senhasdiferentes">As senhas não são iguais</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>
