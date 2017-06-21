@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Petinder</string>
+    <string name="app_name">PETinder</string>
     <string name="hint_exemplo_email">example@example.com</string>
     <string name="text_login">Login</string>
     <string name="text_senha">Senha</string>
