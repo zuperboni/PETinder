@@ -4,11 +4,6 @@
     <string name="text_login">Login</string>
     <string name="text_senha">Senha</string>
     <string name="text_entrar">Entrar</string>
-    <string name="text_informacoes_pessoais">informações Pessoais</string>
-    <string name="text_salvar">Salvar</string>
-    <string name="hint_digite_seu_nome">Digite seu nome</string>
-    <string name="title_activity_main2">Main2Activity</string>
-    <string name="hint_nome_cachorro">Digite o nome do seu cachorro</string>
     //Config da Navigation Drawer
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -38,7 +33,6 @@
     <string name="senhasdiferentes">As senhas não são iguais</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

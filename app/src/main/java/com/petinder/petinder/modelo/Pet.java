@@ -1,19 +1,32 @@
 package com.petinder.petinder.modelo;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Mônica on 14/06/2017.
  */
 
-public class Pet {
+public class Pet implements Serializable{
+    @SerializedName("codPet")
     private int codPet;
+    @SerializedName("nome")
     private String nome;
+    @SerializedName("idade")
     private int idade;
+    @SerializedName("sexo")
     private String sexo;
+    @SerializedName("sobre")
     private String sobre;
+    @SerializedName("raca")
     private Raca raca;
+    @SerializedName("proprietario")
     private Usuario proprietario;
+    @SerializedName("fotoPerfil")
+    private String fotoPerfil;
+    @SerializedName("album")
     private List<PetAlbum> album;
 
     public int getCodPet() {
@@ -78,5 +91,13 @@ public class Pet {
 
     public void setAlbum(List<PetAlbum> album) {
         this.album = album;
+    }
+
+    public String getFotoPerfil() {
+        return fotoPerfil;
+    }
+
+    public void setFotoPerfil(String fotoPerfil) {
+        this.fotoPerfil = fotoPerfil;
     }
 }
