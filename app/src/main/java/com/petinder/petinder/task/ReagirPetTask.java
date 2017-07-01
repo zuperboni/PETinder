@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.petinder.petinder.fragment.MainFragment;
 import com.petinder.petinder.modelo.Combinacoes;
@@ -27,7 +28,7 @@ public class ReagirPetTask extends AsyncTask {
     private MainFragment fragment;
     private Combinacoes combinacao;
 
-    public ReagirPetTask(int page, Combinacoes combinacao) {
+    public ReagirPetTask(MainFragment fragment,int page, Combinacoes combinacao) {
         this.activity= activity;
         this.fragment = fragment;
         this.combinacao=combinacao;
@@ -48,20 +49,30 @@ public class ReagirPetTask extends AsyncTask {
         String data = json.CombinacoesToJson(combinacao,page);
         answer = HttpConnection.getSetDataWeb(this.url, this.method, data);
         Log.i("Resposta", answer);
+      /*
         CombinacoesJson combinacoesJson = new CombinacoesJson();
         try {
             combinacao = combinacoesJson.JsonToCombinacoes(answer);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-        return combinacao;
+    */
+        return answer;
     }
     @Override
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
-
        // Verificar aqui se deu match
+        String resposta =   (String) o;
+        if(resposta.equals("match")){
+           fragment.notificaMatch(resposta,combinacao.getCodPetFila());
+        }
+        else if (resposta.equals("naoMatch")){
+            
+        }
+        else{
+            // Ocorreu um erro!
+        }
     }
 
 }

@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
@@ -48,7 +49,7 @@ public class MainFragment extends Fragment {
     public void updateScreen(List<Pet> pets){
 
         for (Pet pet : pets) {
-            mSwipeView.addView(new PetCard(mContext, pet, mSwipeView));
+            mSwipeView.addView(new PetCard(mContext,this, pet, mSwipeView));
         }
 
         getActivity().findViewById(R.id.rejectBtn).setOnClickListener(new View.OnClickListener() {
@@ -64,5 +65,10 @@ public class MainFragment extends Fragment {
                 mSwipeView.doSwipe(true);
             }
         });
+    }
+    public void notificaMatch(String match, int codPet){
+        if(match.equals("match")){
+            Toast.makeText(getActivity(),"Você e o Pet código " + codPet + " combinam! :) ",Toast.LENGTH_LONG).show();
+        }
     }
 }

@@ -1,11 +1,13 @@
 package com.petinder.petinder.adapter;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
@@ -49,11 +51,13 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
     private Pet mProfile;
     private Context mContext;
     private SwipePlaceHolderView mSwipeView;
+    private MainFragment mfragment;
 
-    public PetCard(Context context, Pet profile, SwipePlaceHolderView swipeView) {
+    public PetCard(Context context, MainFragment fragment, Pet profile, SwipePlaceHolderView swipeView) {
         mContext = context;
         mProfile = profile;
         mSwipeView = swipeView;
+        mfragment = fragment;
     }
 
     @Resolve
@@ -78,7 +82,7 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
         combinacao.setCodPetAtual(1); // Pegar o codigo do pet que esta visualizando
         combinacao.setCodPetFila(mProfile.getCodPet());
         combinacao.setLikeStatus("yes");
-        ReagirPetTask task = new ReagirPetTask( 1, combinacao);
+        ReagirPetTask task = new ReagirPetTask(mfragment, 1, combinacao);
         task.execute();
     }
 
@@ -94,7 +98,7 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
         combinacao.setCodPetAtual(1); // Pegar o codigo do pet que esta visualizando
         combinacao.setCodPetFila(mProfile.getCodPet());
         combinacao.setLikeStatus("no");
-        ReagirPetTask task = new ReagirPetTask( 1, combinacao);
+        ReagirPetTask task = new ReagirPetTask(mfragment, 1, combinacao);
         task.execute();
     }
 
@@ -107,4 +111,6 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
     private void onSwipeOutState(){
         Log.d("EVENT", "onSwipeOutState");
     }
+
+
 }
