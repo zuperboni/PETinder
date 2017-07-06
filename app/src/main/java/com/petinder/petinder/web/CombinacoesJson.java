@@ -23,7 +23,7 @@ public class CombinacoesJson {
         try {
             jsonStringer.object()
                     .key("cod_pet_atual").value(combinacao.getCodPetAtual())
-                    .key("cod_pet_fila").value(combinacao.getCodPetFila())
+                  //  .key("cod_pet_fila").value(combinacao.getCodPetFila())
                     .key("like_status").value(combinacao.getLikeStatus())
                     .endObject();
         }
@@ -39,7 +39,7 @@ public class CombinacoesJson {
         try {
             JSONObject jo = new JSONObject(data);
                 combinacoes.setCodPetAtual(jo.getInt("cod_pet_atual"));
-                combinacoes.setCodPetFila(jo.getInt("cod_pet_fila"));
+             //   combinacoes.setCodPetFila(jo.getInt("cod_pet_fila"));
                 combinacoes.setLikeStatus(jo.getString("like_status"));
 
         } catch (JSONException e) {

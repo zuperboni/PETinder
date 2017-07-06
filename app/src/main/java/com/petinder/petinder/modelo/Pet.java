@@ -1,6 +1,9 @@
 package com.petinder.petinder.modelo;
 
+import android.app.Activity;
+
 import com.google.gson.annotations.SerializedName;
+import com.petinder.petinder.task.BuscaConversasTask;
 
 import java.io.Serializable;
 import java.util.List;
@@ -23,11 +26,12 @@ public class Pet implements Serializable{
     @SerializedName("raca")
     private Raca raca;
     @SerializedName("proprietario")
-    private Usuario proprietario;
+    private String proprietario;
     @SerializedName("fotoPerfil")
     private String fotoPerfil;
     @SerializedName("album")
     private List<PetAlbum> album;
+
 
     public int getCodPet() {
         return codPet;
@@ -77,11 +81,11 @@ public class Pet implements Serializable{
         this.raca = raca;
     }
 
-    public Usuario getProprietario() {
+    public String getProprietario() {
         return proprietario;
     }
 
-    public void setProprietario(Usuario proprietario) {
+    public void setProprietario(String proprietario) {
         this.proprietario = proprietario;
     }
 
@@ -99,5 +103,10 @@ public class Pet implements Serializable{
 
     public void setFotoPerfil(String fotoPerfil) {
         this.fotoPerfil = fotoPerfil;
+    }
+
+    public void buscaConversas(Activity activity, android.support.v4.app.Fragment fragment) {
+        BuscaConversasTask task = new BuscaConversasTask(activity, this, fragment);
+        task.execute();
     }
 }

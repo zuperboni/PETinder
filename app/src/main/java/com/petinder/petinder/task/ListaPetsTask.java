@@ -46,7 +46,7 @@ public class ListaPetsTask extends AsyncTask {
 
         Pet pet = new Pet();
         PetJson json = new PetJson();
-        String data = json.PettoJson(pet,page);
+        String data = json.PettoJson(pet);
         answer = HttpConnection.getSetDataWeb(this.url, this.method, data);
         Log.i("Resposta", answer);
         PetJson petJson = new PetJson();

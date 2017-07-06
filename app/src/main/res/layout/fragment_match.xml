@@ -1,0 +1,66 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="#1be8e9ee"
+    android:orientation="vertical"
+    tools:context="com.petinder.petinder.fragment.MatchFragment">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="40dp">
+
+            <ImageView
+                android:id="@+id/match_img_logo_match"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:src="@drawable/match"
+                android:layout_marginBottom="30dp"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/match_img_macho"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/dog_black" />
+
+                <ImageView
+                    android:id="@+id/match_img_like"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_heart" />
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/match_img_femea"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/dog_red" />
+            </LinearLayout>
+
+            <Button
+                android:layout_marginTop="30dp"
+                android:id="@+id/match_btn_mensagem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enviar mensagem agora" />
+
+            <Button
+                android:id="@+id/match_btn_depois"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Conversar depois" />
+
+        </LinearLayout>
+
+</FrameLayout>

@@ -27,7 +27,7 @@ public class PetJson {
     DateFormat sqlDateHrFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     DateFormat sqlDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-    public String PettoJson(Pet pet, int page) {
+    public String PettoJson(Pet pet) {
 
         JSONStringer jsonStringer = new JSONStringer();
         try {

@@ -1,0 +1,9 @@
+diff a/.gitignore b/.gitignore	(rejected hunks)
+@@ -9,6 +9,7 @@
+ placeholderview/.gitignore
+ placeholderview/build.gradle
+ placeholderview/proguard-rules.pro
++placeholderview/src/androidTest/java/com/petinder/placeholderview/ExampleInstrumentedTest.java
+ placeholderview/src/main/AndroidManifest.xml
+ placeholderview/src/main/java/com/petinder/placeholderview/Animation.java
+ placeholderview/src/main/java/com/petinder/placeholderview/AnimationResolver.java

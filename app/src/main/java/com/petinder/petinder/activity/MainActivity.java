@@ -1,12 +1,17 @@
 package com.petinder.petinder.activity;
 
+import android.app.ActivityOptions;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -17,6 +22,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.petinder.petinder.R;
+import com.petinder.petinder.fragment.ConversasFragment;
 import com.petinder.petinder.fragment.LoginFragment;
 import com.petinder.petinder.fragment.MainFragment;
 import com.petinder.petinder.modelo.Usuario;
@@ -102,6 +108,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.chat) {
+            toolbar.setTitle(R.string.chat);
+            ConversasFragment fragmentConversas = new ConversasFragment();
+            android.support.v4.app.FragmentTransaction transactionConversas = getSupportFragmentManager().beginTransaction();
+            transactionConversas.replace(R.id.frameLayout, fragmentConversas);
+            transactionConversas.commit();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 
     public boolean EstaLogado() {
         try {

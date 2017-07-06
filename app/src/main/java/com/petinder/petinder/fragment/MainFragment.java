@@ -2,8 +2,10 @@ package com.petinder.petinder.fragment;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,9 +68,22 @@ public class MainFragment extends Fragment {
             }
         });
     }
-    public void notificaMatch(String match, int codPet){
-        if(match.equals("match")){
-            Toast.makeText(getActivity(),"Você e o Pet código " + codPet + " combinam! :) ",Toast.LENGTH_LONG).show();
+    public void notificaMatch(Pet pet){
+
+            Fragment newFragment = new MatchFragment();
+
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("pet", pet);
+            newFragment.setArguments(bundle);
+
+
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                    transaction.replace(R.id.frameLayout, newFragment);
+                    transaction.addToBackStack(null);
+
+
+            transaction.commit();
         }
-    }
+
 }

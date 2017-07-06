@@ -1,19 +1,15 @@
 package com.petinder.petinder.adapter;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 import com.mindorks.placeholderview.annotations.Click;
 import com.mindorks.placeholderview.annotations.Layout;
-import com.mindorks.placeholderview.annotations.NonReusable;
 import com.mindorks.placeholderview.annotations.Resolve;
 import com.mindorks.placeholderview.annotations.View;
 import com.mindorks.placeholderview.annotations.swipe.SwipeCancelState;
@@ -22,10 +18,10 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeInState;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 import com.petinder.petinder.R;
-import com.petinder.petinder.activity.MainActivity;
 import com.petinder.petinder.fragment.MainFragment;
 import com.petinder.petinder.modelo.Combinacoes;
 import com.petinder.petinder.modelo.Pet;
+import com.petinder.petinder.task.BuscaPerfilPetTask;
 import com.petinder.petinder.task.ReagirPetTask;
 import com.petinder.petinder.util.Utils;
 
@@ -72,15 +68,17 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
     @Click(R.id.profileImageView)
     private void onClick(){
-        Log.d("EVENT", "profileImageView click");
-        mSwipeView.addView(this);
+        Pet pet = new Pet();
+        pet.setCodPet(mProfile.getCodPet());
+        BuscaPerfilPetTask task = new BuscaPerfilPetTask(mfragment, pet);
+        task.execute();
     }
 
     @SwipeOut
     private void onSwipedOut(){
         Combinacoes combinacao = new Combinacoes();
         combinacao.setCodPetAtual(1); // Pegar o codigo do pet que esta visualizando
-        combinacao.setCodPetFila(mProfile.getCodPet());
+        combinacao.setPetFila(mProfile);
         combinacao.setLikeStatus("yes");
         ReagirPetTask task = new ReagirPetTask(mfragment, 1, combinacao);
         task.execute();
@@ -96,7 +94,7 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
         Log.i("ENVIANDO", "onSwipedIn");
         Combinacoes combinacao = new Combinacoes();
         combinacao.setCodPetAtual(1); // Pegar o codigo do pet que esta visualizando
-        combinacao.setCodPetFila(mProfile.getCodPet());
+        combinacao.setPetFila(mProfile);
         combinacao.setLikeStatus("no");
         ReagirPetTask task = new ReagirPetTask(mfragment, 1, combinacao);
         task.execute();

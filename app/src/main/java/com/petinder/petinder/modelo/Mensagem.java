@@ -14,6 +14,7 @@ public class Mensagem {
     private Date dthrRecebida = new Date();
     private Date dthrVisualizada = new Date();
     private String situacao;
+    private String msg;
 
     public int getCodMensagem() {
         return codMensagem;
@@ -69,5 +70,13 @@ public class Mensagem {
 
     public void setSituacao(String situacao) {
         this.situacao = situacao;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 }

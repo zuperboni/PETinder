@@ -19,8 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.CadastroUsuarioActivity"></activity>
-
+        <activity android:name=".activity.CadastroUsuarioActivity" />
 
         <!-- [START firebase_service] -->
         <service android:name=".util.MyFirebaseMessagingService">
@@ -37,6 +36,7 @@
         </service>
         <!-- [END firebase_iid_service] -->
 
+        <activity android:name=".activity.ChatActivity"></activity>
     </application>
 
 </manifest>

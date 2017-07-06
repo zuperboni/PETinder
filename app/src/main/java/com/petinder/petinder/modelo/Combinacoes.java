@@ -6,7 +6,7 @@ package com.petinder.petinder.modelo;
 
 public class Combinacoes {
     private int codPetAtual;
-    private int codPetFila;
+    private Pet PetFila;
     private String likeStatus;
 
     public int getCodPetAtual() {
@@ -25,11 +25,11 @@ public class Combinacoes {
         this.likeStatus = likeStatus;
     }
 
-    public int getCodPetFila() {
-        return codPetFila;
+    public Pet getPetFila() {
+        return PetFila;
     }
 
-    public void setCodPetFila(int codPetFila) {
-        this.codPetFila = codPetFila;
+    public void setPetFila(Pet PetFila) {
+        this.PetFila = PetFila;
     }
 }

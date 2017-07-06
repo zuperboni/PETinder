@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.petinder.petinder.fragment.MainFragment;
 import com.petinder.petinder.modelo.Combinacoes;
 import com.petinder.petinder.modelo.Pet;
@@ -42,34 +43,26 @@ public class ReagirPetTask extends AsyncTask {
     @Override
     protected Object doInBackground(Object[] objects) {
         String answer = "";
-
+        Gson gson = new Gson();
         method = "combinacao_pet-json";
 
-        CombinacoesJson json = new CombinacoesJson();
-        String data = json.CombinacoesToJson(combinacao,page);
+        //String data = json.CombinacoesToJson(combinacao,page);
+        String data = gson.toJson(combinacao);
         answer = HttpConnection.getSetDataWeb(this.url, this.method, data);
         Log.i("Resposta", answer);
-      /*
-        CombinacoesJson combinacoesJson = new CombinacoesJson();
-        try {
-            combinacao = combinacoesJson.JsonToCombinacoes(answer);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    */
-        return answer;
+        Pet pet= gson.fromJson(answer, Pet.class);
+
+        return pet;
     }
     @Override
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
        // Verificar aqui se deu match
-        String resposta =   (String) o;
-        if(resposta.equals("match")){
-           fragment.notificaMatch(resposta,combinacao.getCodPetFila());
+        Pet pet =   (Pet) o;
+        if(pet.getCodPet()>0){
+           fragment.notificaMatch(pet);
         }
-        else if (resposta.equals("naoMatch")){
-            
-        }
+
         else{
             // Ocorreu um erro!
         }
