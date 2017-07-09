@@ -64,7 +64,7 @@ public class ReagirPetTask extends AsyncTask {
         }
 
         else{
-            // Ocorreu um erro!
+
         }
     }
 

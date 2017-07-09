@@ -1,6 +1,7 @@
 package com.petinder.petinder.modelo;
 
 import android.app.Activity;
+import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 import com.petinder.petinder.task.BuscaConversasTask;

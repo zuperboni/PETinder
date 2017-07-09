@@ -106,6 +106,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
+        if(id==R.id.meusPets){
+            Intent intent= new Intent(this, CadastroPetActivity.class);
+            startActivity(intent);
+
+        }
         return true;
     }
     @Override

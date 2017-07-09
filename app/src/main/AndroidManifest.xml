@@ -36,7 +36,9 @@
         </service>
         <!-- [END firebase_iid_service] -->
 
-        <activity android:name=".activity.ChatActivity"></activity>
+        <activity android:name=".activity.ChatActivity" />
+        <activity android:name=".activity.PerfilPetActivity" />
+        <activity android:name=".activity.CadastroPetActivity"></activity>
     </application>
 
 </manifest>

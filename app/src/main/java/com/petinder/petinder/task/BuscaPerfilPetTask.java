@@ -30,7 +30,6 @@ public class BuscaPerfilPetTask extends AsyncTask {
     protected Object doInBackground(Object[] objects) {
         String answer = "";
         Gson gson = new Gson();
-        //String data = json.PettoJson(pet);
         String data = gson.toJson(pet);
         answer = HttpConnection.getSetDataWeb(this.url, this.method, data);
         Log.i("Resposta", answer);
@@ -42,6 +41,14 @@ public class BuscaPerfilPetTask extends AsyncTask {
     @Override
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
+        Pet pet =   (Pet) o;
+        if(pet.getCodPet()>0){
+            fragment.exibePerfil(pet);
+        }
+
+        else{
+
+        }
 
     }
 

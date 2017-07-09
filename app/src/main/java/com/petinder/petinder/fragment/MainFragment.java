@@ -14,6 +14,8 @@ import android.widget.Toast;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 import com.petinder.petinder.R;
+import com.petinder.petinder.activity.MainActivity;
+import com.petinder.petinder.activity.PerfilPetActivity;
 import com.petinder.petinder.adapter.PetCard;
 import com.petinder.petinder.modelo.Pet;
 import com.petinder.petinder.task.ListaPetsTask;
@@ -86,4 +88,11 @@ public class MainFragment extends Fragment {
             transaction.commit();
         }
 
+    public void exibePerfil(Pet pet) {
+
+        Intent intent = new Intent(getActivity(), PerfilPetActivity.class);
+        intent.putExtra("pet",pet);
+        startActivity(intent);
+
+    }
 }
