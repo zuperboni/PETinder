@@ -1,10 +1,12 @@
 package com.petinder.petinder.modelo;
 
+import java.io.Serializable;
+
 /**
  * Created by Mônica on 14/06/2017.
  */
 
-public class Combinacoes {
+public class Combinacoes implements Serializable {
     private int codPetAtual;
     private Pet PetFila;
     private String likeStatus;

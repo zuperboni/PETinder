@@ -27,6 +27,7 @@ import com.petinder.petinder.fragment.LoginFragment;
 import com.petinder.petinder.fragment.MainFragment;
 import com.petinder.petinder.modelo.Usuario;
 import com.petinder.petinder.task.BuscaDadosUsuarioTask;
+import com.petinder.petinder.util.Constantes;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -88,6 +89,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         txtNome.setText(usuario.getNome());
         txtEmail.setText(usuario.getEmail());
 
+        Constantes.EMAIL_PROPRIETARIO = usuario.getEmail();
+        Constantes.NOME_PROPRIETARIO = usuario.getNome();
     }
 
     @Override
@@ -110,8 +113,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if(id==R.id.meusPets){
             Intent intent= new Intent(this, CadastroPetActivity.class);
             startActivity(intent);
-
+        } else if (id== R.id.menu_cadastropet){
+            Intent intent = new Intent(this, CadastroPetActivity.class);
+            startActivity(intent);
         }
+
+
         return true;
     }
     @Override

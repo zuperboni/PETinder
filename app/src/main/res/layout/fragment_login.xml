@@ -63,8 +63,11 @@
 
         <Button
             android:id="@+id/btnCadastrar"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="CADASTRAR"
+            android:background="@color/colorAccent"
+            />
     </LinearLayout>
 </FrameLayout>

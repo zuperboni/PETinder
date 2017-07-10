@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Petinder</string>
+    <string name="app_name">PETinder</string>
     <string name="hint_exemplo_email">example@example.com</string>
     <string name="text_login">Login</string>
     <string name="text_senha">Senha</string>
@@ -31,6 +31,14 @@
     <string name="emailInvalido">E-mail inválido</string>
     <string name="senhacurta">Senha muito curta</string>
     <string name="senhasdiferentes">As senhas não são iguais</string>
+
+
+    <string name="txt_femea">Fêmea</string>
+    <string name="txt_idade">Idade</string>
+    <string name="txt_macho">Macho</string>
+    <string name="cadastrar">Cadastrar</string>
+
+    <string name="prontinho">Prontinho!</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -19,14 +19,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
                 android:src="@drawable/match"
-                android:layout_marginBottom="30dp"
                 />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                >
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/match_img_macho"
@@ -38,7 +38,9 @@
                     android:id="@+id/match_img_like"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/ic_heart" />
+                    android:src="@drawable/ic_heart"
+                    android:layout_margin="10dp"
+                    />
 
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -53,13 +55,18 @@
                 android:id="@+id/match_btn_mensagem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Enviar mensagem agora" />
+                android:text="Enviar mensagem agora"
+                android:background="@color/colorAccent"
+                />
 
             <Button
                 android:id="@+id/match_btn_depois"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Conversar depois" />
+                android:text="Conversar depois"
+                android:background="@color/colorAccent"
+                />
 
         </LinearLayout>
 

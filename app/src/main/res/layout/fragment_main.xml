@@ -4,27 +4,32 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-   >
+    >
     <LinearLayout
+        android:paddingTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="80dp"
+        android:background="@color/brancotransparente"
+        >
         <ImageButton
             android:id="@+id/rejectBtn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/ic_cancel"/>
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/ic_cancel"
+            />
         <ImageButton
             android:id="@+id/acceptBtn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="30dp"
             android:background="@drawable/ic_heart"/>
     </LinearLayout>
     <com.mindorks.placeholderview.SwipePlaceHolderView
         android:id="@+id/swipeView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"/>
 </FrameLayout>

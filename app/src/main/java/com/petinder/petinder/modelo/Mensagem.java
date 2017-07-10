@@ -1,12 +1,13 @@
 package com.petinder.petinder.modelo;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Mônica on 14/06/2017.
  */
 
-public class Mensagem {
+public class Mensagem implements Serializable {
     private int codMensagem;
     private int codPetRemetente;
     private int codPetDestinatario;
