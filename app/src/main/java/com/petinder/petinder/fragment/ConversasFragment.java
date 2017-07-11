@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,8 @@ import android.widget.TextView;
 import com.petinder.petinder.R;
 import com.petinder.petinder.activity.ChatActivity;
 import com.petinder.petinder.adapter.ListViewConversasAdapter;
+import com.petinder.petinder.adapter.RecyclerViewCombinacoesAdapter;
+import com.petinder.petinder.modelo.Combinacoes;
 import com.petinder.petinder.modelo.Pet;
 
 import java.util.List;
@@ -30,6 +34,10 @@ public class ConversasFragment extends Fragment {
     //listas
     List<Bundle> mList;
     private ProgressBar progressBar;
+    private RecyclerView listCombinacoes;
+    private List<Combinacoes> combinacoes;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private RecyclerView.LayoutManager mLayoutManagerCombinacoes;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -61,7 +69,7 @@ public class ConversasFragment extends Fragment {
 
         txtSemConversas = (TextView) fragment.findViewById(R.id.txtSemConversas);
         progressBar = (ProgressBar) fragment.findViewById(R.id.progress);
-
+        listCombinacoes = (RecyclerView) fragment.findViewById(R.id.recycler_view_combinacoes);
         return fragment;
     }
 
@@ -72,8 +80,9 @@ public class ConversasFragment extends Fragment {
 
     }
 
-    public void atualizaLista(List<Bundle> list){
+    public void atualizaLista(List<Bundle> list, List<Combinacoes> combinacoes){
         mList = list;
+        combinacoes= combinacoes;
         adapter = new ListViewConversasAdapter(mList,getActivity());
         mListView.setAdapter(adapter);
 
@@ -84,6 +93,18 @@ public class ConversasFragment extends Fragment {
         }
 
         progressBar.setVisibility(View.GONE);
+
+
+
+
+
+        RecyclerViewCombinacoesAdapter adapterCombinacoes = new RecyclerViewCombinacoesAdapter(getActivity(), combinacoes);
+        mLayoutManager = new LinearLayoutManager(getActivity());
+        mLayoutManagerCombinacoes = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        listCombinacoes.setLayoutManager(mLayoutManagerCombinacoes);
+        listCombinacoes.setAdapter(adapterCombinacoes);
+
+
 
     }
 
