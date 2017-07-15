@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
 
         if(id==R.id.meusPets){
-            Intent intent= new Intent(this, CadastroPetActivity.class);
+            Intent intent= new Intent(this, SelecaoActivity.class);
             startActivity(intent);
         } else if (id== R.id.menu_cadastropet){
             Intent intent = new Intent(this, CadastroPetActivity.class);

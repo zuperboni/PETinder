@@ -38,7 +38,9 @@
 
         <activity android:name=".activity.ChatActivity" />
         <activity android:name=".activity.PerfilPetActivity" />
-        <activity android:name=".activity.CadastroPetActivity"></activity>
+        <activity android:name=".activity.CadastroPetActivity" />
+        <activity android:name=".activity.SelecaoActivity" />
+
     </application>
 
 </manifest>
