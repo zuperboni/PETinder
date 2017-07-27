@@ -10,6 +10,7 @@ import com.petinder.petinder.modelo.Pet;
 import com.petinder.petinder.modelo.Usuario;
 import com.petinder.petinder.util.HttpConnection;
 import com.petinder.petinder.web.PetJson;
+import com.petinder.petinder.activity.CadastroPetActivity;
 
 /**
  * Created by Mônica on 03/07/2017.
@@ -19,13 +20,21 @@ public class BuscaPerfilPetTask extends AsyncTask {
     private final String url = "http://www.4runnerapp.com.br/Petinder/Ctrl/lista_feed_pet_json.php";
     private String method = "busca_perfil_pet-json";
     private MainFragment fragment;
+    private CadastroPetActivity activity;
     private Pet pet;
+    private Boolean editar = false;
 
     public BuscaPerfilPetTask(MainFragment fragment, Pet pet) {
         this.fragment = fragment;
         this.pet = pet;
-
     }
+
+    public BuscaPerfilPetTask(CadastroPetActivity activity, Pet pet, Boolean editar) {
+        this.activity = activity;
+        this.pet = pet;
+        this.editar = editar;
+    }
+
     @Override
     protected Object doInBackground(Object[] objects) {
         String answer = "";
@@ -33,7 +42,7 @@ public class BuscaPerfilPetTask extends AsyncTask {
         String data = gson.toJson(pet);
         answer = HttpConnection.getSetDataWeb(this.url, this.method, data);
         Log.i("Resposta", answer);
-        Pet pet= gson.fromJson(answer, Pet.class);
+        Pet pet = gson.fromJson(answer, Pet.class);
 
         return pet;
     }
@@ -41,15 +50,16 @@ public class BuscaPerfilPetTask extends AsyncTask {
     @Override
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
-        Pet pet =   (Pet) o;
-        if(pet.getCodPet()>0){
-            fragment.exibePerfil(pet);
+        Pet pet = (Pet) o;
+        if (pet.getCodPet() > 0) {
+            if (!editar) {
+                fragment.exibePerfil(pet);
+            } else {
+                activity.PreencheCampos(pet);
+            }
+        } else {
+
         }
-
-        else{
-
-        }
-
     }
 
 }

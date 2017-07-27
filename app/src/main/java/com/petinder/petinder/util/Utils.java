@@ -10,6 +10,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -82,5 +83,13 @@ public class Utils {
 
     public static int dpToPx(int dp) {
         return (int) (dp * Resources.getSystem().getDisplayMetrics().density);
+    }
+
+    public static void mensagemCurta(Context contexto, String mensagem){
+        Toast.makeText(
+                contexto,
+                mensagem,
+                Toast.LENGTH_SHORT
+        ).show();
     }
 }

@@ -23,9 +23,11 @@ public class BuscaPetsUsuarioTask extends AsyncTask {
     private final String method = "buscar_pets_usuario-json";
     private ProgressDialog progress;
     private Context context;
+    private Boolean editar;
 
-    public BuscaPetsUsuarioTask(Context context) {
+    public BuscaPetsUsuarioTask(Context context, Boolean editar) {
         this.context = context;
+        this.editar = editar;
     }
 
     @Override
@@ -50,7 +52,7 @@ public class BuscaPetsUsuarioTask extends AsyncTask {
         progress.dismiss();
         try {
             ArrayList<Pet> pets = (ArrayList<Pet>) o;
-            ((SelecaoActivity) context).AtualizaListaPets(pets);
+            ((SelecaoActivity) context).AtualizaListaPets(pets, editar);
         } catch (Exception ex) {
             Log.i("erro", ex.toString());
         }

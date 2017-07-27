@@ -31,6 +31,7 @@ import com.google.gson.Gson;
 import com.petinder.petinder.R;
 import com.petinder.petinder.modelo.Pet;
 import com.petinder.petinder.modelo.Raca;
+import com.petinder.petinder.task.BuscaPerfilPetTask;
 import com.petinder.petinder.task.CadastraPetTask;
 import com.petinder.petinder.task.CadastraUsuarioTask;
 import com.petinder.petinder.task.ListaRacasTask;
@@ -121,12 +122,6 @@ public class CadastroPetActivity extends AppCompatActivity {
         sobre = (EditText) findViewById(R.id.editTextSobreDog);
         fotoPerfilDog = (ImageView) findViewById(R.id.fotoPerfilDog);
         btAvancar = (Button) findViewById(R.id.cadpet_btn_avancar);
-
-        //Teste Carla
-        nomeDog.setText("Bug");
-        idade.setText("2");
-        rbMacho.setChecked(true);
-        sobre.setText("Neném da mamãe");
 
         ListaRacas();
     }
@@ -345,12 +340,10 @@ public class CadastroPetActivity extends AppCompatActivity {
     }
 
     public void BuscaDadosPerfil() {
-        //usuario = new Usuario();
-        //SharedPreferences prefs = getSharedPreferences("Configuracoes", Context.MODE_PRIVATE);
-        //usuario.setEmail(prefs.getString("email", ""));
-        //BuscaDadosUsuarioTask taskDados = new BuscaDadosUsuarioTask(CadastroUsuarioActivity.this, usuario);
-        //taskDados.execute();
-
+        pet = new Pet();
+        pet.setCodPet(Constantes.PET_SELECIONADO);
+        BuscaPerfilPetTask taskDados = new BuscaPerfilPetTask(CadastroPetActivity.this, pet, true);
+        taskDados.execute();
     }
 
     public void PreencheCampos(Pet pet) {
@@ -369,14 +362,14 @@ public class CadastroPetActivity extends AppCompatActivity {
             Glide.with(this).load(getResources().getString(R.string.imageserver) + pet.getFotoPerfil()).into(fotoPerfilDog);
         }
 
-        if (!editar) {
-            CadastraPetTask taskCadastro = new CadastraPetTask(CadastroPetActivity.this, pet, imagemfoto);
-            taskCadastro.execute();
-        } else {
+        //if (!editar) {
+        //    CadastraPetTask taskCadastro = new CadastraPetTask(CadastroPetActivity.this, pet, imagemfoto);
+        //    taskCadastro.execute();
+        //} else {
             //Task editar
             //pet.setFotoPerfil(auxFoto);
             //EditaPetTask task = new EditaPetTask(CadastroPetActivity.this, pet, imagemfoto);
             //task.execute();
-        }
+        //}
     }
 }

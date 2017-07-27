@@ -2,6 +2,7 @@ package com.petinder.petinder.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -14,6 +15,8 @@ import com.petinder.petinder.R;
 import com.petinder.petinder.modelo.Pet;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import static android.R.attr.resource;
 
@@ -28,11 +31,14 @@ public class GridViewSelecaoAdapter  extends BaseAdapter {
     private Context context;
     private ArrayList<Pet> dados;;
 
-    public GridViewSelecaoAdapter(int resource, Context context, ArrayList<Pet> dados) {
+    private Boolean editar;
+
+    public GridViewSelecaoAdapter(int resource, Context context, ArrayList<Pet> dados, Boolean editar) {
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
         this.resource = resource;
         this.dados = dados;
+        this.editar = editar;
     }
 
     public int getCount() {
@@ -55,24 +61,32 @@ public class GridViewSelecaoAdapter  extends BaseAdapter {
             convertView = mInflater.inflate(resource, parent, false);
         }
 
-        ImageView iv_pet = (ImageView) convertView.findViewById(R.id.selecao_iv_pet);
+        CircleImageView iv_pet = (CircleImageView) convertView.findViewById(R.id.selecao_iv_pet);
         TextView tv_nomepet = (TextView) convertView.findViewById(R.id.selecao_nome_pet);
+
+
 
         Pet pet = dados.get(position);
 
-        //Colocar aqui pra pegar a foto, forçando apenas pra testar
-        //iv_pet.setImageResource(R.drawable.dog_black);
-        if(pet.getFotoPerfil()==null){
-            Glide.with(context).load(R.drawable.dog_red)
-                    .into(iv_pet);
-        }
-        else {
-            Glide.with(context).load(context.getResources().getString(R.string.imageservermini) + pet.getFotoPerfil())
-                    .into(iv_pet);
+        if (editar) {
+            iv_pet.setBorderColor(R.color.preto);
+            iv_pet.setBorderWidth(2);
+
+            Glide.with(context).load(R.drawable.ic_editar_mini_border).into(iv_pet);
+        }else{
+            if (pet.getFotoPerfil() == null) {
+                Glide.with(context).load(R.drawable.dog_red)
+                        .into(iv_pet);
+            } else {
+                Glide.with(context).load(context.getResources().getString(R.string.imageservermini) + pet.getFotoPerfil())
+                        .into(iv_pet);
+            }
         }
         tv_nomepet.setText(pet.getNome().toUpperCase());
 
         return convertView;
     }
+
+
 
 }
