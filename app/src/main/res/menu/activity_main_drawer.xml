@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single"
+    <group
         android:id="@+id/group_logado"
+        android:checkableBehavior="single"
         android:visible="true">
         <item
             android:id="@+id/home"
-
             android:title="Home" />
         <item
             android:id="@+id/meusPets"
-
             android:title="Meus Pets" />
-
-
+        <item
+            android:id="@+id/menu_cadastropet"
+            android:title="Novo Pet" />
         <item
             android:id="@+id/configuracoes"
-
             android:title="Configuracoes" />
-
     </group>
-
-
 </menu>

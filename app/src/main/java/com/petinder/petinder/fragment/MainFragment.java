@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mindorks.placeholderview.SwipeDecor;
@@ -19,6 +20,7 @@ import com.petinder.petinder.activity.PerfilPetActivity;
 import com.petinder.petinder.adapter.PetCard;
 import com.petinder.petinder.modelo.Pet;
 import com.petinder.petinder.task.ListaPetsTask;
+import com.petinder.petinder.util.Constantes;
 
 
 import java.util.List;
@@ -29,12 +31,12 @@ public class MainFragment extends Fragment {
 
     private SwipePlaceHolderView mSwipeView;
     private Context mContext;
-
+    private TextView nenhumPetCadastrado;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // getActivity().setContentView(R.layout.activity_main);
+
         View fragment = inflater.inflate(R.layout.fragment_main, container, false);
         mSwipeView = (SwipePlaceHolderView) fragment.findViewById(R.id.swipeView);
         mContext = getActivity().getApplicationContext();
@@ -44,9 +46,16 @@ public class MainFragment extends Fragment {
                 .setSwipeDecor(new SwipeDecor()
                         .setPaddingTop(20)
                         .setRelativeScale(0.01f));
+        nenhumPetCadastrado = (TextView) getActivity().findViewById(R.id.nenhumPetCadastrado);
+        if(Constantes.CODIGO_PET_ATUAL>0){
+            ListaPetsTask task = new ListaPetsTask(getActivity(), this, 1);
+            task.execute();
+        }
+        else
+        {
+           // nenhumPetCadastrado.setVisibility(View.VISIBLE);
+        }
 
-        ListaPetsTask task = new ListaPetsTask(getActivity(), this, 1);
-        task.execute();
         return fragment;
     }
 
@@ -87,7 +96,6 @@ public class MainFragment extends Fragment {
 
             transaction.commit();
         }
-
     public void exibePerfil(Pet pet) {
 
         Intent intent = new Intent(getActivity(), PerfilPetActivity.class);

@@ -125,14 +125,14 @@
         >
         <ImageButton
             android:id="@+id/perfil_rejectBtn"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:background="@drawable/ic_cancel"
             />
         <ImageButton
             android:id="@+id/perfil_acceptBtn"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="30dp"
             android:background="@drawable/ic_heart"/>
     </LinearLayout>

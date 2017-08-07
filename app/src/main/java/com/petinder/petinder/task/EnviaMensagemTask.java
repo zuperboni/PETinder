@@ -59,7 +59,7 @@ public class EnviaMensagemTask extends AsyncTask {
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
 
-      //  ((ChatActivity)context).receberMensagens();
+        ((ChatActivity)context).receberMensagens();
 
 
     }
