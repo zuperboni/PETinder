@@ -50,7 +50,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         switch (tipo) {
             case "chat":
-              //  onMessageChat(message);
+               //onMessageChat(message);
                 break;
             case "match":
                 //onMatch(message);

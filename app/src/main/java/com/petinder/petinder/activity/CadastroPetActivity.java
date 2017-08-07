@@ -167,7 +167,7 @@ public class CadastroPetActivity extends AppCompatActivity {
                     petAux.setIdade(Integer.parseInt(idade.getText().toString()));
                     petAux.setSexo(sexoFM);
                     petAux.setSobre(sobre.getText().toString());
-                    petAux.setRaca(racaAux.getCodRaca());
+                    petAux.setRaca(racaAux);
                     petAux.setProprietario(Constantes.EMAIL_PROPRIETARIO);
 
                     if (!editar) {

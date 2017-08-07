@@ -51,14 +51,9 @@ public class ReceberMensagensTask extends AsyncTask {
 
         MensagemJson mensagemJson = new MensagemJson();
         String data = mensagemJson.SolicitaMensagem(codPetRemetente, codPetDestinatario,leitor, page);
-
         String answer = HttpConnection.getSetDataWeb(this.url, this.method, data);
-
         Log.i("testeMensagem",answer);
-
         mensagens = mensagemJson.JsonArrayToListaMensagem(answer);
-
-
         return mensagens;
     }
 

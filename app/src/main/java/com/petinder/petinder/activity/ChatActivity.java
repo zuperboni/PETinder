@@ -65,7 +65,7 @@ public class ChatActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String origem = intent.getStringExtra("origem");
-        pet= (Pet) intent.getSerializableExtra("vitrine");
+        pet= (Pet) intent.getSerializableExtra("pet");
 
 
         if (origem.equals("notificacao")) {
@@ -76,9 +76,9 @@ public class ChatActivity extends AppCompatActivity {
         }
         if (origem.equals("icNav")) {
             remetente = prefs.getInt("codPet", 1);
-            destinatario =intent.getIntExtra("codRemetente",0);
-            profPicDestinatario = intent.getStringExtra("profPicRemetente");
-            nomeDestinatario = intent.getStringExtra("nomeRemetente");
+            destinatario =pet.getCodPet();
+            profPicDestinatario = pet.getFotoPerfil();
+            nomeDestinatario = pet.getNome();
         }
 
 
@@ -197,7 +197,7 @@ public class ChatActivity extends AppCompatActivity {
         editor.putBoolean("chatAtivo", true);
         editor.putInt("chatDestinatario", destinatario);
         editor.commit();
-        //receberMensagens();
+        receberMensagens();
 
         //Ligar reeeiver
         this.registerReceiver(mMessageReceiver, new IntentFilter("chat"));

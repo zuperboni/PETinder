@@ -25,8 +25,7 @@ public class Pet implements Serializable{
     @SerializedName("sobre")
     private String sobre;
     @SerializedName("raca")
-    //private Raca raca;
-    private int raca;
+    private Raca raca;
     @SerializedName("proprietario")
     private String proprietario;
     @SerializedName("fotoPerfil")
@@ -75,12 +74,11 @@ public class Pet implements Serializable{
         this.sobre = sobre;
     }
 
-    public int getRaca() {
-
+    public Raca getRaca() {
         return raca;
     }
 
-    public void setRaca(int raca) {
+    public void setRaca(Raca raca) {
         this.raca = raca;
     }
 

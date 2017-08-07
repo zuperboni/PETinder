@@ -60,9 +60,7 @@ public class ConversasFragment extends Fragment {
 
                 Intent intent= new Intent(getActivity(), ChatActivity.class);
                 intent.putExtra("origem","icNav");
-                intent.putExtra("codRemetente",petSelec.getCodPet());
-                intent.putExtra("profPicRemetente",petSelec.getFotoPerfil());
-                intent.putExtra("nomeRemetente",petSelec.getNome());
+                intent.putExtra("pet",petSelec);
                 startActivity(intent);
             }
         });

@@ -66,6 +66,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             FragmentTransaction main = getSupportFragmentManager().beginTransaction();
             main.replace(R.id.frameLayout, new MainFragment());
             main.commit();
+
+
+            SharedPreferences prefs = getSharedPreferences("Configuracoes", MODE_PRIVATE);
+            Constantes.CODIGO_PET_ATUAL = prefs.getInt("pet_atual", 0);
         }
     }
 
