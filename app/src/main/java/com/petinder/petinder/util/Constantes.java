@@ -10,4 +10,5 @@ public class Constantes {
     public static String EMAIL_PROPRIETARIO = "email_proprietario";
     public static String NOME_PROPRIETARIO = "nome_proprietario";
     public static int CODIGO_PET_ATUAL = 0;
+    public static int PET_SELECIONADO = 0;
 }

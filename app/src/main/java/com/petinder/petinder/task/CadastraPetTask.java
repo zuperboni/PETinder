@@ -79,12 +79,11 @@ public class CadastraPetTask extends AsyncTask {
 
         Log.i("resultado Json", o.toString());
 
-        if (o.toString().equals("Sucesso")) {
-
+        if (Integer.parseInt(o.toString())>0) {
             //AtualizaPrefs
             SharedPreferences prefs = activity.getSharedPreferences("Configuracoes", MODE_PRIVATE);
             SharedPreferences.Editor editor = prefs.edit();
-            editor.putInt("pet", pet.getCodPet());
+            editor.putInt("pet_atual", Integer.parseInt(o.toString()));
             editor.commit();
 
             new AlertDialog.Builder(activity).setTitle(R.string.prontinho)

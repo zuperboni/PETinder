@@ -47,9 +47,11 @@ public class MainFragment extends Fragment {
                         .setPaddingTop(20)
                         .setRelativeScale(0.01f));
         nenhumPetCadastrado = (TextView) getActivity().findViewById(R.id.nenhumPetCadastrado);
+        ListaPetsTask task = new ListaPetsTask(getActivity(), this, 1,Constantes.CODIGO_PET_ATUAL);
+        task.execute();
         if(Constantes.CODIGO_PET_ATUAL>0){
-            ListaPetsTask task = new ListaPetsTask(getActivity(), this, 1);
-            task.execute();
+          //  ListaPetsTask task = new ListaPetsTask(getActivity(), this, 1);
+            //task.execute();
         }
         else
         {
