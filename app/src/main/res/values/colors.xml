@@ -12,7 +12,7 @@
     <color name="text_msg_input">#626262</color>
     <color name="lblFromName">#777777</color>
 
-    <color name="cinzatransparente">#7d847b7b</color>
+    <color name="cinzatransparente">#c6847b7b</color>
     <color name="brancotransparente">#7bffffff</color>
     <color name="preto">#000000</color>
 </resources>

@@ -1,25 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
     android:orientation="vertical"
-    android:padding="10dp"
-    android:gravity="center">
+    android:padding="10dp">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/selecao_iv_pet"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/dog_1"
-        android:padding="8dp"
-        />
-
-    <TextView
-        android:id="@+id/selecao_nome_pet"
+    <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NOME DO PET"
-        />
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/selecao_iv_pet"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:padding="8dp"
+                android:src="@drawable/dog_1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/selecao_iv_cor_cinza"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:padding="8dp"
+                android:src="@color/cinzatransparente" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/selecao_iv_editar"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:padding="30dp"
+                android:src="@drawable/ic_editar_mini"
+                />
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/selecao_nome_pet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NOME DO PET" />
+    </LinearLayout>
 
 </LinearLayout>

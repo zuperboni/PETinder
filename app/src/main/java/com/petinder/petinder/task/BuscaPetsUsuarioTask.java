@@ -24,10 +24,12 @@ public class BuscaPetsUsuarioTask extends AsyncTask {
     private ProgressDialog progress;
     private Context context;
     private Boolean editar;
+    private Pet pet;
 
-    public BuscaPetsUsuarioTask(Context context, Boolean editar) {
+    public BuscaPetsUsuarioTask(Context context, Boolean editar, Pet pet) {
         this.context = context;
         this.editar = editar;
+        this.pet = pet;
     }
 
     @Override
@@ -38,11 +40,19 @@ public class BuscaPetsUsuarioTask extends AsyncTask {
 
     @Override
     protected Object doInBackground(Object[] objects) {
-        String answer = HttpConnection.getSetDataWeb(this.url, this.method, "");
+
+        Gson gson1 = new Gson();
+
+        String data = gson1.toJson(pet);
+
+        String answer = HttpConnection.getSetDataWeb(this.url, this.method, data);
         Log.i("Resposta = ", answer);
+
         Gson gson = new Gson();
+
         Type listType = new TypeToken<ArrayList<Pet>>(){}.getType();
         ArrayList<Pet> pets = gson.fromJson(answer, listType);
+
         return pets;
     }
 

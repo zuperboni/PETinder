@@ -62,26 +62,29 @@ public class GridViewSelecaoAdapter  extends BaseAdapter {
         }
 
         CircleImageView iv_pet = (CircleImageView) convertView.findViewById(R.id.selecao_iv_pet);
+        CircleImageView iv_cor_cinza = (CircleImageView) convertView.findViewById(R.id.selecao_iv_cor_cinza);
         TextView tv_nomepet = (TextView) convertView.findViewById(R.id.selecao_nome_pet);
-
+        ImageView iv_editar = (ImageView) convertView.findViewById(R.id.selecao_iv_editar);
 
 
         Pet pet = dados.get(position);
 
         if (editar) {
-            iv_pet.setBorderColor(R.color.preto);
-            iv_pet.setBorderWidth(2);
-
-            Glide.with(context).load(R.drawable.ic_editar_mini_border).into(iv_pet);
+            iv_editar.setVisibility(View.VISIBLE);
+            iv_cor_cinza.setVisibility(View.VISIBLE);
         }else{
-            if (pet.getFotoPerfil() == null) {
-                Glide.with(context).load(R.drawable.dog_red)
-                        .into(iv_pet);
-            } else {
-                Glide.with(context).load(context.getResources().getString(R.string.imageservermini) + pet.getFotoPerfil())
-                        .into(iv_pet);
-            }
+            iv_cor_cinza.setVisibility(View.GONE);
+            iv_editar.setVisibility(View.GONE);
         }
+
+        if (pet.getFotoPerfil() == null) {
+            Glide.with(context).load(R.drawable.dog_red)
+                    .into(iv_pet);
+        } else {
+            Glide.with(context).load(context.getResources().getString(R.string.imageservermini) + pet.getFotoPerfil())
+                    .into(iv_pet);
+        }
+
         tv_nomepet.setText(pet.getNome().toUpperCase());
 
         return convertView;

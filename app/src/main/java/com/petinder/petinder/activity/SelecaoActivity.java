@@ -97,7 +97,10 @@ public class SelecaoActivity extends AppCompatActivity {
     }
 
     private void ListaRacas(Boolean editar) {
-        BuscaPetsUsuarioTask task = new BuscaPetsUsuarioTask(this, editar);
+        Pet pet = new Pet();
+        pet.setProprietario(Constantes.EMAIL_PROPRIETARIO);
+
+        BuscaPetsUsuarioTask task = new BuscaPetsUsuarioTask(this, editar, pet);
         task.execute();
     }
 
