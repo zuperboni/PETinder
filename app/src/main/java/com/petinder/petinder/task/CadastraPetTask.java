@@ -119,6 +119,7 @@ public class CadastraPetTask extends AsyncTask {
     @Override
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
+<<<<<<< HEAD
 
         //Editando
         if (editar) {
@@ -156,6 +157,33 @@ public class CadastraPetTask extends AsyncTask {
                 ((CadastroPetActivity) activity).onErroCadastro();
             }
 
+=======
+        progress.dismiss();
+
+        Log.i("resultado Json", o.toString());
+
+        if (Integer.parseInt(o.toString())>0) {
+            //AtualizaPrefs
+            SharedPreferences prefs = activity.getSharedPreferences("Configuracoes", MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putInt("pet_atual", Integer.parseInt(o.toString()));
+            editor.commit();
+
+            new AlertDialog.Builder(activity).setTitle(R.string.prontinho)
+                    .setMessage(R.string.cadastrado)
+                    .setCancelable(false)
+                    .setPositiveButton(R.string.continuar, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent(activity, MainActivity.class);
+                            activity.startActivity(intent);
+                            activity.finish();
+                        }
+                    })
+                    .show();
+        } else {
+            ((CadastroPetActivity) activity).onErroCadastro();
+>>>>>>> d23b1abba2d88c70c750bf1662b5c5e881ecf670
         }
     }
 }

@@ -21,14 +21,16 @@ public class ListaPetsTask extends AsyncTask {
     private String method = "";
     private ProgressDialog progress;
     private int page = 1;
+    private int codPet= 0;
     private Activity activity;
     private MainFragment fragment;
     List<Pet> pets;
 
-    public ListaPetsTask(Activity activity, MainFragment fragment, int page) {
+    public ListaPetsTask(Activity activity, MainFragment fragment, int page, int codPet) {
         this.activity = activity;
         this.fragment = fragment;
         this.page = page;
+        this.codPet = codPet;
 
     }
 
@@ -45,6 +47,7 @@ public class ListaPetsTask extends AsyncTask {
         method = "lista_feed_pet-json";
 
         Pet pet = new Pet();
+        pet.setCodPet(codPet);
         PetJson json = new PetJson();
         String data = json.PettoJson(pet);
         answer = HttpConnection.getSetDataWeb(this.url, this.method, data);

@@ -51,7 +51,10 @@ public class RecyclerViewCombinacoesAdapter extends RecyclerView.Adapter<Recycle
 
     @Override
     public int getItemCount() {
-        return combinacoes.size();
+        if(combinacoes != null ){
+            return combinacoes.size();
+        }
+        return 0;
     }
 
 

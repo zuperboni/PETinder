@@ -23,6 +23,7 @@ import com.petinder.petinder.modelo.Combinacoes;
 import com.petinder.petinder.modelo.Pet;
 import com.petinder.petinder.task.BuscaPerfilPetTask;
 import com.petinder.petinder.task.ReagirPetTask;
+import com.petinder.petinder.util.Constantes;
 import com.petinder.petinder.util.Utils;
 
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
@@ -77,7 +78,7 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
     @SwipeOut
     private void onSwipedOut(){
         Combinacoes combinacao = new Combinacoes();
-        combinacao.setCodPetAtual(1); // Pegar o codigo do pet que esta visualizando
+        combinacao.setCodPetAtual(Constantes.CODIGO_PET_ATUAL); // Pegar o codigo do pet que esta visualizando
         combinacao.setPetFila(mProfile);
         combinacao.setLikeStatus("yes");
         ReagirPetTask task = new ReagirPetTask(mfragment, 1, combinacao);
@@ -93,7 +94,7 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
     private void onSwipeIn(){
         Log.i("ENVIANDO", "onSwipedIn");
         Combinacoes combinacao = new Combinacoes();
-        combinacao.setCodPetAtual(1); // Pegar o codigo do pet que esta visualizando
+        combinacao.setCodPetAtual(Constantes.CODIGO_PET_ATUAL); // Pegar o codigo do pet que esta visualizando
         combinacao.setPetFila(mProfile);
         combinacao.setLikeStatus("no");
         ReagirPetTask task = new ReagirPetTask(mfragment, 1, combinacao);

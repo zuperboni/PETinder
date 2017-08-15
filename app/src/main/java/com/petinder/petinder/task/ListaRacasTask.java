@@ -8,7 +8,6 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.petinder.petinder.activity.CadastroPetActivity;
-import com.petinder.petinder.modelo.Pet;
 import com.petinder.petinder.modelo.Raca;
 import com.petinder.petinder.util.HttpConnection;
 

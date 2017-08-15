@@ -1,13 +1,18 @@
 package com.petinder.petinder.modelo;
 
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
+
 
 /**
  * Created by Mônica on 14/06/2017.
  */
 
-public class Combinacoes {
-    @SerializedName("cod_pet_atual")
+
+public class Combinacoes implements Serializable {
+
     private int codPetAtual;
     @SerializedName("cod_pet_fila")
     private Pet PetFila;
