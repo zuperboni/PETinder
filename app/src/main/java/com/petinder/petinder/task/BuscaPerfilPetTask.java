@@ -20,19 +20,11 @@ public class BuscaPerfilPetTask extends AsyncTask {
     private final String url = "http://www.4runnerapp.com.br/Petinder/Ctrl/lista_feed_pet_json.php";
     private String method = "busca_perfil_pet-json";
     private MainFragment fragment;
-    private CadastroPetActivity activity;
     private Pet pet;
-    private Boolean editar = false;
 
     public BuscaPerfilPetTask(MainFragment fragment, Pet pet) {
         this.fragment = fragment;
         this.pet = pet;
-    }
-
-    public BuscaPerfilPetTask(CadastroPetActivity activity, Pet pet, Boolean editar) {
-        this.activity = activity;
-        this.pet = pet;
-        this.editar = editar;
     }
 
     @Override
@@ -52,11 +44,7 @@ public class BuscaPerfilPetTask extends AsyncTask {
         super.onPostExecute(o);
         Pet pet = (Pet) o;
         if (pet.getCodPet() > 0) {
-            if (!editar) {
-                fragment.exibePerfil(pet);
-            } else {
-                activity.PreencheCampos(pet);
-            }
+            fragment.exibePerfil(pet);
         } else {
 
         }

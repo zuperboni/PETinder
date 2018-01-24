@@ -31,6 +31,8 @@
     <string name="emailInvalido">E-mail inválido</string>
     <string name="senhacurta">Senha muito curta</string>
     <string name="senhasdiferentes">As senhas não são iguais</string>
+    <string name="conexaoIndosponivel">A conexão não se encontra dísponivel no momento</string>
+    <string name="dadosInvalidos">Os dados não são válidos, corrija e tente novamente</string>
 
 
     <string name="txt_femea">Fêmea</string>

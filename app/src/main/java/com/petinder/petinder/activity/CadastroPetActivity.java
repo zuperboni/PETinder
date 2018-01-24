@@ -34,6 +34,7 @@ import com.petinder.petinder.modelo.Raca;
 import com.petinder.petinder.task.BuscaPerfilPetTask;
 import com.petinder.petinder.task.CadastraPetTask;
 import com.petinder.petinder.task.CadastraUsuarioTask;
+import com.petinder.petinder.task.EditaPetTask;
 import com.petinder.petinder.task.ListaRacasTask;
 import com.petinder.petinder.util.Constantes;
 import com.petinder.petinder.web.PetGson;
@@ -162,23 +163,24 @@ public class CadastroPetActivity extends AppCompatActivity {
                     ArrayList<Pet> dados = new ArrayList<>();
 
                     Pet petAux = new Pet();
-                    petAux.setCodPet(0);
+                    if (!editar) {
+                        petAux.setCodPet(0);
+                    } else {
+                        petAux.setCodPet(pet.getCodPet());
+                    }
                     petAux.setNome(nomeDog.getText().toString());
                     petAux.setIdade(Integer.parseInt(idade.getText().toString()));
                     petAux.setSexo(sexoFM);
                     petAux.setSobre(sobre.getText().toString());
-                    petAux.setRaca(racaAux);
+                    //petAux.setRaca(racaAux);
                     petAux.setProprietario(Constantes.EMAIL_PROPRIETARIO);
 
                     if (!editar) {
                         CadastraPetTask taskCadastro = new CadastraPetTask(CadastroPetActivity.this, petAux, imagemfoto);
                         taskCadastro.execute();
                     } else {
-                    /* Task editar - Criar!
-                    usuario.setImagemPerfil(auxFoto);
-                    EditaUsuarioTask task = new EditaUsuarioTask(CadastroUsuarioActivity.this, usuario, imagemfoto);
-                    task.execute();
-                    */
+                        EditaPetTask taskEditar = new EditaPetTask(CadastroPetActivity.this, petAux, imagemfoto);
+                        taskEditar.execute();
                     }
                 }
             }
@@ -342,14 +344,14 @@ public class CadastroPetActivity extends AppCompatActivity {
     public void BuscaDadosPerfil() {
         pet = new Pet();
         pet.setCodPet(Constantes.PET_SELECIONADO);
-        BuscaPerfilPetTask taskDados = new BuscaPerfilPetTask(CadastroPetActivity.this, pet, true);
+        CadastraPetTask taskDados = new CadastraPetTask(CadastroPetActivity.this, pet, imagemfotoReduzida);
         taskDados.execute();
     }
 
     public void PreencheCampos(Pet pet) {
 
         nomeDog.setText(pet.getNome());
-        idade.setText(pet.getIdade());
+        idade.setText(String.valueOf(pet.getIdade()));
         sobre.setText(pet.getSobre());
         if (pet.getSexo().equals("Femea")) {
             rbFemea.setChecked(true);
@@ -358,18 +360,27 @@ public class CadastroPetActivity extends AppCompatActivity {
         }
         auxFoto = pet.getFotoPerfil();
 
+        raca.setSelection(encontrePosition(raca, pet.getRaca()));
+
         if (!pet.getFotoPerfil().equals("")) {
             Glide.with(this).load(getResources().getString(R.string.imageserver) + pet.getFotoPerfil()).into(fotoPerfilDog);
         }
 
-        //if (!editar) {
-        //    CadastraPetTask taskCadastro = new CadastraPetTask(CadastroPetActivity.this, pet, imagemfoto);
-        //    taskCadastro.execute();
-        //} else {
-            //Task editar
-            //pet.setFotoPerfil(auxFoto);
-            //EditaPetTask task = new EditaPetTask(CadastroPetActivity.this, pet, imagemfoto);
-            //task.execute();
-        //}
+        this.pet = pet;
+    }
+
+    private int encontrePosition(Spinner spinnerRaca, int id) {
+        int indice = 0;
+
+        for (int i = 0; i < spinnerRaca.getCount(); i++) {
+            Raca raca = (Raca) spinnerRaca.getItemAtPosition(i);
+            if (raca.getCodRaca() == id) {
+                indice = i;
+
+                break;
+            }
+        }
+
+        return indice;
     }
 }
